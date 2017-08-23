@@ -1,0 +1,41 @@
+/*
+ * Estilos reutilizables
+ */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+   color: #fff;
+ }
+ a {
+   text-decoration: none;
+ }
+ .container {
+   display: flex;
+ }
+ .row {
+   flex-direction: row;
+ }
+ .column {
+   flex-direction: column;
+ }
+ .wrap {
+   flex-wrap: wrap;
+ }
+.bold {
+  font-weight: bold;
+}
+.bg-green {
+  background: #18bc9c;
+}
+.bg-green-links{
+  padding: 5%;
+  background: #18bc9c;
+}
+.star-black {
+  color: #333;
+}
+.star-black::after {
+  background: #fff;
+}
