@@ -2,11 +2,9 @@ window.addEventListener("scroll", function () {
 var currentScroll=window.pageYOffset || document.body.scrollTop;
  console.log(currentScroll);
  if (currentScroll > 329) {
-   document.getElementsByTagName('nav')[0].classList.add("nav-container-min");
-   document.getElementById('txtBootstrap').style.fontSize="21px";
+   console.log('hola');
  }else {
-   document.getElementsByTagName('nav')[0].classList.remove("nav-container-min");
-   document.getElementById('txtBootstrap').style.fontSize="28px";
+   console.log('no');
  }
 
  if (currentScroll>675 && currentScroll < 1508) {

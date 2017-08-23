@@ -14,15 +14,15 @@ a{
     text-transform: uppercase;
     border: none;
     background: #2c3e50;
-    padding: 20px 0;
+    padding: 30px;
     position: fixed;
-		display: flex;
-		color: white;
+	display: flex;
+	color: white;
 }
 
-.title{
+#title{
 	width: 70%;
-	font-size: 2em;
+	font-size: 2.2em;
 }
 .links{
 	width: 30%;
@@ -31,11 +31,13 @@ a{
 
 .links a{
 	color: white;
-	margin: 0 20px;
+	padding: 15px;
 }
-
+.links a:hover{
+	color: #18bc9c;
+}
 header{
-	padding-top: 100px;
+	padding-top: 200px;
     padding-bottom: 50px;
     text-align: center;
     color: white;
@@ -48,20 +50,32 @@ header span{
 }
 
 header .name{
-    font-size: 4em;
+    font-size: 4.5em;
     font-weight: 700;
     text-transform: uppercase;
 }
+@media(max-width: 800px){
+	header .name{
+		font-size: 3em;
+		font-weight: 500;
+	}
+}
 
-hr {
-  max-width: 250px;
-  margin: 25px auto 0;
+.resaltar{
+	background-color: #18bc9c;
+	color: white;
+	border-radius: 5px;
+}
+.star {
+  width: 250px;
+  height: 0;
+  margin: 25px auto;
   padding: 0;
   text-align: center;
-  border: none;
-  border-top: solid 5px; }
+  border-top: solid 5px; 
+}
 
-hr:after {
+.star:after {
   font-family: FontAwesome;
   font-size: 2em;
   position: relative;
@@ -71,11 +85,11 @@ hr:after {
 }
 
 
-hr.uno:after {
+.uno:after {
   background-color: #18BC9C;
 }
 
-hr.dos:after {
+.dos:after {
   background-color: white;
 }
 
@@ -152,8 +166,16 @@ section {
 	flex: 0 0 50%;
 	line-height: 1.8em;
 	padding: 0 15px;
+	margin: 10px 0;
 	font-size: 1.2em;
 	font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+@media(max-width: 1000px){
+	#about .row p{
+		flex:100%;
+		padding: 0;
+	}
 }
 .lol {
 	border: 2px solid;
@@ -171,7 +193,7 @@ section {
 	color:#18bc9c;
 }
 form{
-	width: 540px;
+	width: 60%;
 	margin: 0 auto;
 }
 form label{
@@ -209,6 +231,22 @@ footer{
 footer h2{
 	text-transform: uppercase;
 }
+
+footer a{
+	color: #18bc9c;
+}
+
+footer .colm{
+	text-align:center;
+}
+footer .row{
+	padding: 50px;
+}
+
+#copyright{
+	text-align: center;
+	padding: 80px;
+}
 .social{
 	color: inherit;
 	padding-top: 15px;
@@ -232,4 +270,28 @@ footer h2{
 	top: 0;
 	left: 0;
 	width: 100%;
+}
+
+#scroll{
+	border-radius: 100%;
+	background-color: #2c3e50;
+	color: white;
+	text-align:center;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	width: 50px;
+	height: 50px;
+	padding: 15px 0;
+	cursor: pointer;
+	display: none;
+}
+
+#scroll:focus{
+	outline: none;
+}
+@media(max-width: 1200px){
+	#scroll{
+		display: block;
+	}
 }

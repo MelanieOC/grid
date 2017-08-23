@@ -11,20 +11,20 @@
 <body>
 	<!-- Seccion de nav -->
 	<nav class="main container">
-		<span class="title">Start Bootstrap</span>
+		<span id="title">Start Bootstrap</span>
 		<span class="links">
-			<a href="#portafolio">Portfolio</a>
-			<a href="#about">About</a>
-			<a href="#contact">contact</a>
+			<a id="link-portfolio" href="#portafolio">Portfolio</a>
+			<a id="link-about" href="#about">About</a>
+			<a id="link-contact" href="#contact">contact</a>
 		</span>
 	</nav>
 	<!-- Header -->
-	<header>
+	<header id="header">
 		<div class="container">
 			<img src="assets/images/profile.png">
 			<div class="noo">
 				<span class="name">Start Bootstrap</span>
-				<hr class="uno">
+				<div class="star uno"></div>
 				<span>Web Developer - Graphic Artist - User Experience Designer</span>
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 	<section id="portafolio">
 		<div class="container">
 			<h1>Portfolio</h1>
-			<hr class="dos">
+			<div class="star dos"></div>
 			<div class="row">
 				<div class="colm">
 					<div>
@@ -90,7 +90,7 @@
 	<section id="about">
 		<div class="container">
 			<h1>About</h1>
-			<hr class="uno">
+			<div class="star uno"></div>
 			<div class="row">
 				<p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
 				<p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
@@ -105,7 +105,7 @@
 	<section id="contact">
 		<div class="container">
 			<h1>Contact Me</h1>
-			<hr class="dos">
+			<div class="star dos"></div>
 			<form>
 				<p><label>Name</label><br><input class="formulario" type="text" placeholder="Name" required></p>
 				<p><label>Email Adress</label><br><input class="formulario" type="email" placeholder="Email Adress" required></p>
@@ -139,11 +139,15 @@
 					</p>
 				</div>
 			</div>
+			<div id="copyright">
+				Copyright © Your Website 2017
+			</div>
 		</div>
 	</footer>
 	<!-- Scroll -->
-	<div id="scroll"></div>
-
+	<a id="scroll" href="#header">
+		<i class="fa fa-chevron-up"></i>
+	</a>
 	<script src="js/app.js"></script>
 </body>
 </html>
