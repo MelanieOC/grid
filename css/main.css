@@ -72,7 +72,7 @@ header .name{
   margin: 25px auto;
   padding: 0;
   text-align: center;
-  border-top: solid 5px; 
+  border-top: solid 5px;
 }
 
 .star:after {
@@ -198,12 +198,17 @@ form{
 }
 form label{
 	display: none;
+	font-size: 15px;
+	color:#18bc9c;
+}
+
+form p{
+	border-bottom: 1px solid silver;
 }
 .formulario{
 	border:none;
 	width: 100%;
 	padding: 20px 5px 35px;
-	border-bottom: 1px solid silver;
 	font-size: 1.5em;
 	color: silver;
 }
