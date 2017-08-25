@@ -11,10 +11,30 @@
 
 function crearModel(e) {
   var div=document.createElement('div');
+  div.setAttribute('align', 'center');
   div.classList.add('grande');
+  var close=document.createElement('button');
+  close.innerHTML='X';
+  close.classList.add('close');
+  close.onclick=function() {
+  	e.parentNode.removeChild(e.parentNode.lastChild);
+  }
+  var h1=document.createElement('h1');
+  h1.innerHTML='project';
+  var title=document.createElement('div');
+  title.classList.add('star', 'dos');
   var img=document.createElement('img');
   img.src=e.nextSibling.nextSibling.src;
+  var p1=document.createElement('p');
+  p1.innerHTML='Use this area of the page to describe your project. The icon above is part of a free icon set by <a>Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!';
+  var p2=document.createElement('p');
+  p2.innerHTML='Client: <a>Start Bootstrap</a> <br>Date: <a>April 2014</a><br>Service: <a>Web Development</a>';
+  div.appendChild(close);
+  div.appendChild(h1);
+  div.appendChild(title);
   div.appendChild(img);
+  div.appendChild(p1);
+  div.appendChild(p2);
   e.parentNode.appendChild(div);
 }
 
@@ -48,6 +68,16 @@ var currentScroll=window.pageYOffset || document.body.scrollTop;
 });
 
 // // VALIDACIÓN FORMULARIO // //
+var inputs=document.getElementsByClassName('formulario');
+for (var i = 0; i < inputs.length; i++) {
+  var j = inputs[i];
+  function nooo() {
+    if(j.autofocus){
+      j.parentNode.firstChild.style.display='block';
+    }
+  }
+}
+
 var nombre = document.getElementById('nombre');
 var email = document.getElementById('email');
 var phone = document.getElementById('number');
