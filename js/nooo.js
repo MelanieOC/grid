@@ -33,13 +33,14 @@ function validateForm(){
 		var validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 		if (nombre.value === "") {
-      nombre.parentNode.appendChild(labelErr("Please enter your name."));
+      		nombre.parentNode.appendChild(labelErr("Please enter your name."));
 			validaciones = false;
 		} else {
 			validaciones = true;
 		}
 
 		if (email.value === "") {
+			nombre.parentNode.appendChild(labelErr("Please enter your name."));
       labelErr(email, "Please enter your email address.")
 			validaciones = false;
 		} else if(!validEmail.test(email)) {
