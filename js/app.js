@@ -1,3 +1,4 @@
+//se da el evento click a cada imagen
 var pictures= document.getElementsByClassName('transparente');
 
  for (var i = 0; i < pictures.length; i++) {
@@ -6,6 +7,7 @@ var pictures= document.getElementsByClassName('transparente');
    }
  }
 
+//se crea el model, con DOM
 function crearModel(e) {
   var div=document.createElement('div');
   div.setAttribute('align', 'center');
@@ -26,60 +28,67 @@ function crearModel(e) {
   p1.innerHTML='Use this area of the page to describe your project. The icon above is part of a free icon set by <a>Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!';
   var p2=document.createElement('p');
   p2.innerHTML='Client: <a>Start Bootstrap</a> <br>Date: <a>April 2014</a><br>Service: <a>Web Development</a>';
+  var close2=document.createElement('button');
+  close2.innerHTML='x Close';
+  close2.classList.add('submit');
+  close2.onclick=function() {
+  	e.parentNode.removeChild(e.parentNode.lastChild);
+  }
   div.appendChild(close);
   div.appendChild(h1);
   div.appendChild(title);
   div.appendChild(img);
   div.appendChild(p1);
   div.appendChild(p2);
+  div.appendChild(close2);
   e.parentNode.appendChild(div);
 }
 
+//evento con el scroll, para resaltar la seccion donde se encuentra
 window.addEventListener("scroll", function () {
 var currentScroll=window.pageYOffset || document.body.scrollTop;
- console.log(currentScroll);
  if (currentScroll > 200) {
  	document.getElementsByClassName('main')[0].style.padding="20px";
-   	document.getElementById('title').style.fontSize="1.2em";
+   	document.getElementById('title').style.fontSize="1.5em";
  }else {
  	document.getElementsByClassName('main')[0].style.padding="30px";
    	document.getElementById('title').style.fontSize="2.2em";
  }
 
- if (currentScroll>590 && currentScroll < 1280) {
+ if (currentScroll>600 && currentScroll < 1330) {
    document.getElementById('link-portfolio').classList.add("resaltar");
  }else {
    document.getElementById('link-portfolio').classList.remove("resaltar");
  }
- if(currentScroll >= 1280 && currentScroll < 1980 ){
+ if(currentScroll >= 1330 && currentScroll < 2050 ){
    document.getElementById('link-about').classList.add("resaltar");
  }else {
    document.getElementById('link-about').classList.remove("resaltar");
  }
 
- if(currentScroll >= 1980){
+ if(currentScroll >= 2050){
    document.getElementById('link-contact').classList.add("resaltar");
  }else {
    document.getElementById('link-contact').classList.remove("resaltar");
  }
 });
 
+
+//Para que el 'label' de los input aparezca
 var inputs=document.getElementsByClassName('formulario');
 for (var i = 0; i < inputs.length; i++) {
-  var j = inputs[i];
-  j.onfocus=function() {
-    nooo(this);
+  var input = inputs[i];
+  input.onfocus=function() {
+    enFoco(this);
   }
-  function nooo(e) {
+  function enFoco(e) {
   	e.parentNode.firstChild.style.display='block';
   		e.parentNode.firstChild.style.color='#18bc9c';
-
   }
-
-  j.onblur=function(){
-  	nop(this);
+  input.onblur=function(){ //y cambie de color cada vez que no este enfocado
+  	sinFoco(this);
   }
-  function nop(e) {
+  function sinFoco(e) {
   	e.parentNode.firstChild.style.color='black';
   	if(e.value==''){
   		e.parentNode.firstChild.style.display='none';
@@ -87,6 +96,8 @@ for (var i = 0; i < inputs.length; i++) {
   }
 }
 
+
+//validacion de formulario
 var nombre = document.getElementById('nombre');
 var email = document.getElementById('email');
 var phone = document.getElementById('number');
@@ -95,62 +106,68 @@ var send = document.getElementById('send');
 send.onclick=function() {
   validateForm();
 }
+
+var text=function(d, no) { //texto que da el mensaje de 'error'
+  if(d.nextSibling){
+    d.parentNode.removeChild(d.parentNode.lastChild);
+  }
+  var span=document.createElement('li');
+  span.classList.add('error');
+  span.innerHTML=no;
+  d.parentNode.appendChild(span);
+}
+
 function validateForm(){
 	event.preventDefault();
 		var validaciones = true;
-	
-		var validName = /^[A-Za-z]*/;
-		var validPhone = /^56(?=[1-9]\d{0,2}[1-9])(?=\d{2,15}$)\d+$/;
-		var validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		
-		var text=function(d, no) {
-			if(d.nextSibling){
-				d.parentNode.removeChild(d.parentNode.lastChild);
-			}
-			var span=document.createElement('span');
-			span.classList.add('error');
-			span.innerHTML=no;
-			d.parentNode.appendChild(span);
-		}
+
 		if (nombre.value == "") {
 			text(nombre, "Please enter your name.");
-			validaciones =  false;
+			validaciones =  validaciones && false;
 		} else {
-			validaciones = true;
+			validaciones = validaciones && true;
 		}
 		if (email.value === "") {
 			text(email, "Please enter your email address.");
-			validaciones = false;
+			validaciones = validaciones && false;
 		}
-		else if(!validEmail.test(email)) {
-			text(email, "Este correo no es válido.");
-			validaciones = false;
+		else if(!(/\S+@\S+\.\S+/.test(email.value))) { //valida si tiene los caracteres de un email
+			text(email, "Not a valid email address");
+			validaciones = validaciones && false;
 		}
 		else {
 			validaciones = true;
 		}
 		if (phone.value === "") {
 			text(phone, "Please enter your phone number.");
-			validaciones =  false;
+			validaciones =  validaciones && false;
 		}
-		else if(!validPhone.test(phone)) {
-			text(phone, "Este número no es válido.");
-			validaciones = false;
+		else if(isNaN(phone.value)) { //valida si es un numero
+			text(phone, "Not a valid phone number.");
+			validaciones = validaciones && false;
 		}
 		else {
 			validaciones = true;
 		}
 		if (message.value === "") {
 			text(message, "Please enter a message.");
-			validaciones = false;
+			validaciones = validaciones && false;
 		} else {
-			validaciones = true;
+			validaciones = validaciones && true;
 		}
-		if (validaciones == true) {
-			name.value = "";
+
+
+		if (validaciones) { //cuando todo es 'valido' se borra los inputs
+			nombre.value = "";
 			email.value = "";
 			phone.value = "";
 			message.value = "";
+      for (var i = 0; i < inputs.length; i++){
+        inputs[i].parentNode.firstChild.style.display='none';//se borra los labels
+        if(inputs[i].nextSibling){ //se borra los mensajes de error
+          inputs[i].parentNode.removeChild(inputs[i].parentNode.lastChild);
+        }
+      }
 		}
 
 };
