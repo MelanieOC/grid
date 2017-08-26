@@ -187,15 +187,16 @@ footer h2{
 footer a{
 	color: #18bc9c;
 }
-footer a:hover{
-	text-decoration: underline;
-}
+
 footer .colm{
 	text-align:center;
 	line-height: 2.2em;
 }
 footer .row{
 	padding: 50px;
+}
+.free a:hover{
+	text-decoration: underline;
 }
 
 #copyright{
@@ -218,6 +219,7 @@ footer .row{
 .social:hover{
 	background: white;
 	color: #18bc9c;
+
 }
 
 
@@ -232,12 +234,22 @@ footer .row{
 	height: 100%;
 	background-color: white;
 	overflow: scroll;
+	animation: mover 0.3s;
 }
-.grande img{
+@keyframes mover {
+	from{
+		transform: translateY(20px);
+	} to {
+		transform: translateY(0px);
+	}
+}
+.modal{
 	width: 50%;
-	height: 60%;
 }
 
+.modal img{
+	width: 100%;
+}
 .grande a{
 	color: #18bc9c;
 }

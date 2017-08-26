@@ -13,7 +13,9 @@ textarea{
 section {
     padding: 100px 0;
 }
-
+button:focus{
+	outline: none;
+}
 .container {
 	margin-right: auto;
     margin-left: auto;

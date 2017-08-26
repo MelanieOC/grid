@@ -22,8 +22,11 @@ function crearModel(e) {
   h1.innerHTML='project';
   var title=document.createElement('div');
   title.classList.add('star', 'dos');
+  var imagen = document.createElement('div');
+  imagen.classList.add('modal');
   var img=document.createElement('img');
   img.src=e.nextSibling.nextSibling.src;
+  imagen.appendChild(img);
   var p1=document.createElement('p');
   p1.innerHTML='Use this area of the page to describe your project. The icon above is part of a free icon set by <a>Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!';
   var p2=document.createElement('p');
@@ -37,7 +40,7 @@ function crearModel(e) {
   div.appendChild(close);
   div.appendChild(h1);
   div.appendChild(title);
-  div.appendChild(img);
+  div.appendChild(imagen);
   div.appendChild(p1);
   div.appendChild(p2);
   div.appendChild(close2);
