@@ -117,7 +117,9 @@ var text=function(d, no) { //texto que da el mensaje de 'error'
   var span=document.createElement('li');
   span.classList.add('error');
   span.innerHTML=no;
-  d.parentNode.appendChild(span);
+  if(no.length>1){
+    d.parentNode.appendChild(span);
+  }
 }
 
 function validateForm(){
@@ -129,6 +131,7 @@ function validateForm(){
 			validaciones =  validaciones && false;
 		} else {
 			validaciones = validaciones && true;
+      text(nombre, '');
 		}
 		if (email.value === "") {
 			text(email, "Please enter your email address.");
@@ -139,26 +142,26 @@ function validateForm(){
 			validaciones = validaciones && false;
 		}
 		else {
-			validaciones = true;
+			validaciones = validaciones && true;
+      text(email, '');
 		}
 		if (phone.value === "") {
 			text(phone, "Please enter your phone number.");
-			validaciones =  validaciones && false;
-		}
-		else if(isNaN(phone.value)) { //valida si es un numero
+			validaciones = validaciones && false;
+		} else if(isNaN(phone.value)) { //valida si es un numero
 			text(phone, "Not a valid phone number.");
 			validaciones = validaciones && false;
-		}
-		else {
-			validaciones = true;
+		} else {
+			validaciones = validaciones && true;
+      text(phone, '');
 		}
 		if (message.value === "") {
 			text(message, "Please enter a message.");
 			validaciones = validaciones && false;
 		} else {
 			validaciones = validaciones && true;
+      text(message, '');
 		}
-
 
 		if (validaciones) { //cuando todo es 'valido' se borra los inputs
 			nombre.value = "";

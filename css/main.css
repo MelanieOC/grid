@@ -16,6 +16,22 @@
 	width: 70%;
 	font-size: 2.2em;
 }
+
+#menu{
+	display: none;
+	width: 10%;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 15px;
+}
+@media(max-width: 1000px){
+	#menu{
+		display: block;
+	}
+	.links{
+		display: none;
+	}
+}
 .links{
 	width: 30%;
 	margin: auto 0;
