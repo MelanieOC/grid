@@ -126,55 +126,55 @@ function validateForm(){
 	 event.preventDefault();
 		var validaciones = true;
 
-		if (nombre.value == "") {
-			text(nombre, "Please enter your name.");
-			validaciones =  validaciones && false;
-		} else {
-			validaciones = validaciones && true;
+	if (nombre.value == "") {
+      text(nombre, "Please enter your name.");
+      validaciones =  validaciones && false;
+  } else {
       text(nombre, '');
-		}
+      validaciones = validaciones && true;
+  }
 
-		if (email.value === "") {
-			text(email, "Please enter your email address.");
-			validaciones = validaciones && false;
-		} else if(!(/\S+@\S+\.\S+/.test(email.value))) { //valida si tiene los caracteres de un email
-			text(email, "Not a valid email address");
-			validaciones = validaciones && false;
-		} else {
-			validaciones = validaciones && true;
+  if (email.value === "") {
+      text(email, "Please enter your email address.");
+      validaciones = validaciones && false;
+  } else if(!(/\S+@\S+\.\S+/.test(email.value))) { //valida si tiene los caracteres de un email
+      text(email, "Not a valid email address");
+      validaciones = validaciones && false;
+  } else {
       text(email, '');
-		}
+      validaciones = validaciones && true;
+  }
 
-		if (phone.value === "") {
-			text(phone, "Please enter your phone number.");
-			validaciones = validaciones && false;
-		} else if(isNaN(phone.value)) { //valida si es un numero
-			text(phone, "Not a valid phone number.");
-			validaciones = validaciones && false;
-		} else {
-			validaciones = validaciones && true;
+  if (phone.value === "") {
+      text(phone, "Please enter your phone number.");
+      validaciones = validaciones && false;
+  } else if(isNaN(phone.value)) { //valida si es un numero
+      text(phone, "Not a valid phone number.");
+      validaciones = validaciones && false;
+  } else {
       text(phone, '');
-		}
+      validaciones = validaciones && true;
+  }
     
-		if (message.value === "") {
-			text(message, "Please enter a message.");
-			validaciones = validaciones && false;
-		} else {
-			validaciones = validaciones && true;
+  if (message.value === "") {
+      text(message, "Please enter a message.");
+      validaciones = validaciones && false;
+  } else {
       text(message, '');
-		}
+      validaciones = validaciones && true;
+  }
 
-		if (validaciones) { //cuando todo es 'valido' se borra los inputs
-			nombre.value = "";
-			email.value = "";
-			phone.value = "";
-			message.value = "";
+  if (validaciones) { //cuando todo es 'valido' se borra los inputs
+      nombre.value = "";
+      email.value = "";
+      phone.value = "";
+      message.value = "";
       for (var i = 0; i < inputs.length; i++){
         inputs[i].parentNode.firstChild.style.display='none';//se borra los labels
         if(inputs[i].nextSibling){ //se borra los mensajes de error
           inputs[i].parentNode.removeChild(inputs[i].parentNode.lastChild);
         }
       }
-		}
+  }
 
 };
