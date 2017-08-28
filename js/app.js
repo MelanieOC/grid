@@ -123,7 +123,7 @@ var text=function(d, no) { //texto que da el mensaje de 'error'
 }
 
 function validateForm(){
-	event.preventDefault();
+	 event.preventDefault();
 		var validaciones = true;
 
 		if (nombre.value == "") {
@@ -133,18 +133,18 @@ function validateForm(){
 			validaciones = validaciones && true;
       text(nombre, '');
 		}
+
 		if (email.value === "") {
 			text(email, "Please enter your email address.");
 			validaciones = validaciones && false;
-		}
-		else if(!(/\S+@\S+\.\S+/.test(email.value))) { //valida si tiene los caracteres de un email
+		} else if(!(/\S+@\S+\.\S+/.test(email.value))) { //valida si tiene los caracteres de un email
 			text(email, "Not a valid email address");
 			validaciones = validaciones && false;
-		}
-		else {
+		} else {
 			validaciones = validaciones && true;
       text(email, '');
 		}
+
 		if (phone.value === "") {
 			text(phone, "Please enter your phone number.");
 			validaciones = validaciones && false;
@@ -155,6 +155,7 @@ function validateForm(){
 			validaciones = validaciones && true;
       text(phone, '');
 		}
+    
 		if (message.value === "") {
 			text(message, "Please enter a message.");
 			validaciones = validaciones && false;
